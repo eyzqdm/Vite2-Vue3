@@ -17,8 +17,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    </template>
-<!-- 有下一级嵌套 递归组件 -->
+    <!-- 有下一级嵌套 递归组件 -->
     <el-submenu
       v-else
       ref="subMenu"
@@ -68,7 +67,7 @@ const props = defineProps({
 });
 const onlyOneChild = ref(null);
 const hasOneShowingChild = (children = [], parent) => {
-  const showingChildren = children.filter((item) => {
+  const showingChildren = children.filter(item => {
     if (item.hidden) {
       return false;
     } else {
@@ -88,13 +87,14 @@ const hasOneShowingChild = (children = [], parent) => {
   }
   return false;
 };
-const resolvePath = (routePath) => {
+const resolvePath = routePath => {
   if (isExternal(routePath)) {
     return routePath;
   }
   if (isExternal(props.basePath)) {
     return props.basePath;
   }
-  return path.resolve(props.basePath, routePath);
+  console.log(props.basePath + routePath);
+  return props.basePath + "/" + routePath;
 };
 </script>

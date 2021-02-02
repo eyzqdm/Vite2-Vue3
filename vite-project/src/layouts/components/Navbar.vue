@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <!-- 面包屑 -->
+    <breadcrumb class="breadcrumb-container"></breadcrumb>
     <!-- 右侧下拉菜单 -->
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
@@ -12,15 +13,20 @@
           <router-link to="/">
             <el-dropdown-item> 首页 </el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/57code/vite2-in-action/">
+          <a target="_blank" href="https://github.com/eyzqdm">
             <el-dropdown-item>我的Github</el-dropdown-item>
+          </a>
+          <a target="_blank" href="https://www.jianshu.com/u/db64c58a8b20">
+            <el-dropdown-item>我的简书</el-dropdown-item>
           </a>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
   </div>
 </template>
-
+<script setup>
+import Breadcrumb from "./Breadcrumb.vue";
+</script>
 <style lang="scss" scoped>
 .navbar {
   height: 50px;
@@ -28,6 +34,10 @@
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  .breadcrumb-container {
+    float: left;
+  }
 
   .right-menu {
     float: right;

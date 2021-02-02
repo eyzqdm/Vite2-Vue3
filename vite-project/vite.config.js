@@ -1,6 +1,7 @@
 import vue from "@vitejs/plugin-vue"; // vue 通过插件形式整合到vite环境中
 import { defineConfig } from "vite"; // 代码提示
 import path from "path";
+import { viteMockServe } from "vite-plugin-mock";
 
 /**
  * @type {import('vite').UserConfig}
@@ -17,5 +18,5 @@ export default defineConfig({
     layouts: path.resolve(__dirname, "src/layouts"),
     utils: path.resolve(__dirname, "src/utils"),
   },
-  plugins: [vue()],
+  plugins: [vue(),viteMockServe({ supportTs: false })],
 });
